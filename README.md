@@ -11,10 +11,7 @@
     - Blog
     - template do post
     - Cadastro para um novo Escritor/Comentarista, Moderador ou Admin
-  - EndPoint
-    - Criar Posts
 
   - Performance
     - Cache com Redis
     - protocolos modernos
-    - 

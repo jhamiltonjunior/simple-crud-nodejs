@@ -2,8 +2,8 @@ POST http://localhost:5000/mail
 Content-Type: application/json
 
 {
-  "name": "Foo",
-  "email": "bar@nauts.com.br",
+  "name": "Júnior",
+  "email": "foo@nauts.com.br",
   "password": 3254511
 
 }

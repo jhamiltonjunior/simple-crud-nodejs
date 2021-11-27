@@ -17,6 +17,6 @@ export default {
       html: `Bem-vindo ${name}, você foi cadastrado no nosso site`,
     });
 
-    return res.json(user);
+    res.json(user);
   },
 };

@@ -1,3 +1,7 @@
+/*
+  se criares um arquivo que não seja uma rota insira-o no filter
+*/
+
 import { readdirSync } from 'fs';
 
 import path from 'path';
