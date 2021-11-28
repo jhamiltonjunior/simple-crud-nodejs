@@ -5,8 +5,8 @@ const options = {
   useUnifiedTopology: true,
 };
 
-mongoose.connect(process.env.CONNECTIONDB, options);
+mongoose.connect(process.env.CONNECTION_DB, options);
 
-mongoose.connection.dropDatabase();
+// mongoose.connection.dropDatabase();
 
 export default mongoose;

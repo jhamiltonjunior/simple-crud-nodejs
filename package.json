@@ -4,8 +4,9 @@
   "description": "template of a blog",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon ./src/app.js --ignore node_modules --ignore frontend",
-    "dev": "ts-node-dev --respawn src/app.ts",
+    "start": "npm-run-all -p dev:*",
+    "dev:server": "nodemon ./src/app.js --ignore node_modules --ignore frontend",
+    "dev:queue": "nodemon ./src/queue.js --ignore node_modules --ignore frontend",
     "wp": "webpack -w",
     "lint": "./node_modules/.bin/eslint"
   },
@@ -14,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bull": "^4.1.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
@@ -21,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "nodemailer": "^6.7.2",
+    "redis": "^4.0.0",
     "sucrase": "^3.20.3"
   },
   "devDependencies": {
@@ -29,6 +32,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5"
   }
 }

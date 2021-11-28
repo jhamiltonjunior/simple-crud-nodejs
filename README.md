@@ -15,3 +15,7 @@
   - Performance
     - Cache com Redis
     - protocolos modernos
+
+- Oque você precisa instalar no seu PC (para usar em full localhost)
+  - redis
+  - MongoDB

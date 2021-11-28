@@ -14,4 +14,4 @@ app.use(express.static(path.resolve(__dirname, '..', 'static')));
 
 router(app);
 
-app.listen(5000, () => console.log('OK'));
+app.listen(5000, () => console.log('OK, app'));

@@ -13,9 +13,9 @@ const generateTokenForWriter = (req, res, next) => {
 
   if (!/^Bearer$/i.test(schema)) { res.status(401).json({ message: 'Token malformatted' }); }
 
-  const { privateKeyForWriter } = process.env;
+  const keyForWriter = process.env.KEY_FOR_WRITER;
 
-  jwt.sign(token, privateKeyForWriter, (err, decoded) => {
+  jwt.sign(token, keyForWriter, (err, decoded) => {
     const { user } = req;
 
     if (err) {

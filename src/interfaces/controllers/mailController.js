@@ -1,4 +1,4 @@
-import Mail from '../lib/Mail.js';
+import Queue from '../lib/Queue.js';
 
 export default {
   async store(req, res) {
@@ -10,12 +10,11 @@ export default {
       password,
     };
 
-    await Mail.sendMail({
-      from: 'José Hamilton <hamilton@nauts.com.br>',
-      to: `${name} <${email}>`,
-      subject: 'Você foi cadastrado',
-      html: `Bem-vindo ${name}, você foi cadastrado no nosso site`,
-    });
+    // adicionar job RegistrationMail na fila
+    Queue.add('RegistrationMail', { user });
+
+    // se eu quiser adicionar outra fila basta fazer isso:
+    // Queue.add('OutherQueue', { user });
 
     res.json(user);
   },
