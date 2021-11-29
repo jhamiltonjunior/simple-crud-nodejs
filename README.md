@@ -19,3 +19,9 @@
 - Oque você precisa instalar no seu PC (para usar em full localhost)
   - redis
   - MongoDB
+
+- Next Step
+  - Controller para a listagem, criação, atualização e deleção de um artigo
+  - Cadastro para um novo Escritor/Comentarista
+  - Cadastro para um novo Moderador
+  - Cadastro para um novo Admin

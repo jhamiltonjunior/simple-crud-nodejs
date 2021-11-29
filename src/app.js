@@ -10,6 +10,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
 
 app.use(json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '..', 'static')));
 
 router(app);

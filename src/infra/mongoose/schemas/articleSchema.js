@@ -2,7 +2,7 @@ import mongoose from '../../../config/mongoose.js';
 
 const { Schema, model } = mongoose;
 
-const postSchema = new Schema({
+const articleSchema = new Schema({
   header: {
     title: {
       type: String,
@@ -36,6 +36,6 @@ const postSchema = new Schema({
   },
 });
 
-const Post = model('Post', postSchema);
+const Article = model('Article', articleSchema);
 
-export default Post;
+export default Article;

@@ -1,0 +1,12 @@
+:root {
+  --main-color: rgb(18, 124, 231)
+}
+
+.container {
+  max-width: 1200px;
+  margin: 120px auto 0;
+}
+
+.editor--text__hidden {
+  display: none;
+}
