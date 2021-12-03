@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
 
   console.log(newArticle);
 
-  res.send(newArticle).render('article-template');
+  res.json({ newArticle });
 });
 
 export default (app) => app.use(router);
