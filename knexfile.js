@@ -1,13 +1,17 @@
 // Update with your config settings.
 
-export default {
+module.exports = {
 
   development: {
     client: 'pg',
     connection: {
-      database: 'postgres://tiukvuge:zVzcAA7U7WEP95XPi62DXA3saIi06wwL@kesavan.db.elephantsql.com/tiukvuge',
-      user: 'tiukvuge',
-      password: 'zVzcAA7U7WEP95XPi62DXA3saIi06wwL',
+      database: 'knex_test',
+      user: 'postgres',
+      password: '0000',
+    },
+    migrations: {
+      tableName: 'posts_migrations',
+      directory: `${__dirname}/src/infra/postgreSQL/migrations`,
     },
   },
 
