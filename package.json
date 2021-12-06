@@ -8,7 +8,8 @@
     "dev:server": "nodemon ./src/app.js --ignore node_modules --ignore frontend",
     "dev:queue": "nodemon ./src/queue.js --ignore node_modules --ignore frontend",
     "dev:webpack": "webpack --mode development -w",
-    "lint": "./node_modules/.bin/eslint"
+    "lint": "./node_modules/.bin/eslint",
+    "test": "jest --env node"
   },
   "keywords": [],
   "author": "Hamilton - jhamilton",
@@ -37,8 +38,10 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.14",
     "mongoose": "^6.0.13",
     "nodemailer": "^6.7.2",
+    "pg": "^8.7.1",
     "redis": "^4.0.0",
     "sucrase": "^3.20.3"
   },
