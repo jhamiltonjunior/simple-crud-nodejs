@@ -2,15 +2,18 @@ import { Router } from 'express';
 
 import article from '../controllers/postsController.js';
 
-const { saveArticle } = article;
+const {
+  saveArticle,
+  getArticle,
+} = article;
 
 const router = Router();
 
-router.get('/posts', saveArticle);
+router.get('/posts', getArticle);
 
-router.get('/posts/:id', saveArticle);
+// router.get('/posts/:id', getArticle);
 
-router.post('/posts/:id');
+router.post('/posts/:id', saveArticle);
 
 router.put('/posts/:id');
 
