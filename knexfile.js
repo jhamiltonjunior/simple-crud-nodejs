@@ -13,6 +13,9 @@ module.exports = {
       tableName: 'posts_migrations',
       directory: `${__dirname}/src/infra/postgreSQL/migrations`,
     },
+    seeds: {
+      directory: `${__dirname}/src/infra/postgreSQL/seeds`,
+    },
   },
 
 };

@@ -1,4 +1,4 @@
-exports.up = (knex) => knex.schema.createTable(
+export const up = (knex) => knex.schema.createTable(
   'posts',
   (table) => {
     table.increments('id');
@@ -12,4 +12,4 @@ exports.up = (knex) => knex.schema.createTable(
 
 //
 
-exports.down = (knex) => knex.schema.dropTable('posts');
+export const down = (knex) => knex.schema.dropTable('posts');
