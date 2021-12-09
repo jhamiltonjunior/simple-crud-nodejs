@@ -1,8 +1,8 @@
 import client from '../../../config/postgres.js';
 
-client.query('SELECT * FROM posts;', (err, res) => {
-  console.log(err, res);
-  client.end();
-});
-
-export default client;
+export default (command, item, from, table) => {
+  client.query(`${command} ${item} ${from} ${table};`, (err, res) => {
+    console.log(err, res);
+    client.end();
+  });
+};

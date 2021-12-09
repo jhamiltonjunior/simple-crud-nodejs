@@ -1,8 +1,8 @@
-import pg from '../../infra/postgreSQL/schemas/postsSchema.js';
+import connection from '../../infra/postgreSQL/schemas/postsSchema.js';
 
 export default {
   async index(req, res) {
-    const results = await pg();
+    const results = await connection('SELECT', '*', 'FROM', 'posts');
 
     res.json(results);
   },
