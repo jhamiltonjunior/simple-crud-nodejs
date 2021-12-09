@@ -1,16 +1,12 @@
 import knex from '../../config/postgreSQL.js';
 
 export default {
-  async saveArticle(req, res) {
-    res.json({
-      id: 1,
-      title: 'Meu segundo REST com postgreSQL',
-      body: 'NaN',
-      date: new Date(),
-    });
-  },
+  async index(req, res) {
+    const results = await knex('posts');
 
-  async getArticle(req, res) {
-    knex('posts').then((results) => res.json(results));
+    res.json(results);
+  },
+  async create(req, res) {
+    const { title, body } = req.body;
   },
 };

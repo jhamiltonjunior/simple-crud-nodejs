@@ -3,17 +3,17 @@ import { Router } from 'express';
 import article from '../controllers/postsController.js';
 
 const {
-  saveArticle,
-  getArticle,
+  index,
+  create,
 } = article;
 
 const router = Router();
 
-router.get('/posts', getArticle);
+router.get('/posts', index);
 
-// router.get('/posts/:id', getArticle);
+// router.get('/posts/:id', index);
 
-router.post('/posts/:id', saveArticle);
+router.post('/posts/:id', create);
 
 router.put('/posts/:id');
 
