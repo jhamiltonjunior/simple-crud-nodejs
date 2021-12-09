@@ -1,13 +1,17 @@
-import { Client } from 'pg';
+import { Pool } from 'pg';
 
-const client = new Client({
+const connectionString = {
   user: 'postgres',
   host: 'localhost',
   database: 'nauts',
   password: '0000',
   port: 5432,
-});
+};
 
-client.connect();
+const pool = new Pool(
+  connectionString,
+);
 
-export default client;
+export default {
+  query: (text, params) => pool.query(text, params),
+};

@@ -1,12 +1,13 @@
-import connection from '../../infra/postgreSQL/schemas/postsSchema.js';
+import postsSchema from '../../infra/postgreSQL/schemas/postsSchema.js';
+
+const { index } = postsSchema;
 
 export default {
   async index(req, res) {
-    const results = await connection('SELECT', '*', 'FROM', 'posts');
+    const results = await index('SELECT * FROM posts;');
 
-    res.json(results);
+    console.log(await index('SELECT * FROM posts;'));
+
+    res.json({ res: results });
   },
-  // async create(req, res) {
-  //   const { title, body } = req.body;
-  // },
 };
