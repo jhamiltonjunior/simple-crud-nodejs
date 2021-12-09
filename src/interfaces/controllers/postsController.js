@@ -6,7 +6,7 @@ export default {
 
     res.json(results);
   },
-  async create(req, res) {
-    const { title, body } = req.body;
-  },
+  // async create(req, res) {
+  //   const { title, body } = req.body;
+  // },
 };
