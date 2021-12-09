@@ -1,1 +1,6 @@
+app.set('view engine', 'ejs');
+app.set('views', path.resolve(__dirname, 'views'));
+
+app.use(express.static(path.resolve(__dirname, '..', 'static')));
+
 webpack-cli webpack babel-loader babel-preset-env babel-core @editorjs/checklist @editorjs/delimiter @editorjs/editorjs @editorjs/embed @editorjs/header @editorjs/link @editorjs/list @editorjs/paragraph @editorjs/quote @editorjs/raw @editorjs/simple-image @editorjs/table @editorjs/underline editorjs-paragraph-with-alignment editorjs-text-alignment-blocktune editorjs-tooltip
