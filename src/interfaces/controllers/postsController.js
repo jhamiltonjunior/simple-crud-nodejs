@@ -1,8 +1,8 @@
-import knex from '../../config/postgreSQL.js';
+import pg from '../../infra/postgreSQL/schemas/postsSchema.js';
 
 export default {
   async index(req, res) {
-    const results = await knex('posts');
+    const results = await pg();
 
     res.json(results);
   },
