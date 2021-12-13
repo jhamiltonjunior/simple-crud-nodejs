@@ -1,13 +1,11 @@
-import postsSchema from '../../infra/postgreSQL/schemas/postsSchema.js';
+import postsConfig from '../../config/postgres.js';
 
-const { index } = postsSchema;
+const { query } = postsConfig;
 
 export default {
   async index(req, res) {
-    const results = await index('SELECT * FROM posts;');
+    const results = await query('SELECT * FROM posts;');
 
-    console.log(await index('SELECT * FROM posts;'));
-
-    res.json({ res: results });
+    res.json({ res: results.rows });
   },
 };

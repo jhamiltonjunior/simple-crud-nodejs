@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 
-const connectionString = {
+const connectionObject = {
   user: 'postgres',
   host: 'localhost',
   database: 'nauts',
@@ -9,7 +9,7 @@ const connectionString = {
 };
 
 const pool = new Pool(
-  connectionString,
+  connectionObject,
 );
 
 export default {
