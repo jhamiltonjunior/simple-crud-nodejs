@@ -7,7 +7,7 @@
     },
     "extends": [
         "airbnb-base"
-        // "plugin:@typescript-eslint/recommended",
+        // "plugin:@typescript-eslint/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -19,7 +19,7 @@
         "sourceType": "module"
     },
     "plugins": [
-        // "@typescript-eslint",
+        // "@typescript-eslint"
         // "eslint-plugin-import-helpers"
     ],
     "rules": {

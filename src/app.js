@@ -9,6 +9,10 @@ app.use(json());
 app.use(express.urlencoded({ extended: true }));
 app.use(json({ type: 'application/vnd.api+json' }));
 
+app.get('/', (req, res) => {
+  res.send('Olá mundo');
+});
+
 router(app);
 
 app.listen(5000, () => console.log('OK, app'));

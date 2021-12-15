@@ -6,8 +6,10 @@
   "scripts": {
     "start": "npm-run-all -p dev:*",
     "dev:server": "nodemon ./src/app.js --ignore node_modules --ignore frontend",
-    "dev:queue": "nodemon ./src/queue.js --ignore node_modules --ignore frontend",
+    
+    "not:dev:queue": "nodemon ./src/queue.js --ignore node_modules --ignore frontend",
     "not:dev:webpack": "webpack --mode development -w",
+    
     "lint": "./node_modules/.bin/eslint",
     "test": "jest --env node"
   },
