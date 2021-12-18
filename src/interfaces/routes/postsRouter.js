@@ -4,6 +4,7 @@ import posts from '../controllers/postsController.js';
 
 const {
   index,
+  unique,
   create,
 } = posts;
 
@@ -11,9 +12,9 @@ const router = Router();
 
 router.get('/posts', index);
 
-// router.get('/posts/:id', index);
+router.get('/posts/:id', unique);
 
-// router.post('/posts', create);
+router.post('/posts', create);
 
 // router.put('/posts/:id');
 

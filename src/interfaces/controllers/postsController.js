@@ -9,20 +9,31 @@ export default {
     res.json({ res: results.rows });
   },
 
+  async unique(req, res) {
+    const { id } = req.params;
+
+    const results = query(`SELECT ${id} FROM posts;`);
+
+    res.json({ res: results });
+  },
+
   async create(req, res) {
     const {
-      id,
       title,
       body,
       author,
     } = req.body;
 
-    const results = await query(`INSERT INTO posts (
-      title, body, author, created_at
+    const results = await query(
+      `INSERT INTO posts (
+        title, body, author, created_at
       ) VALUES (
-        ${title}, ${body}, ${author}, ${new Date().now()}
-      )`);
+        $1, $2, $3, $4
+      ) RETURNING *`,
 
-    res.json({ res: results.rows[id] });
+      [title, body, author, '09/09/2022'],
+    );
+
+    res.json({ res: results.rows });
   },
 };
