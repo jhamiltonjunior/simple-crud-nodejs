@@ -12,7 +12,9 @@ export default {
   async unique(req, res) {
     const { id } = req.params;
 
-    const results = query(`SELECT ${id} FROM posts;`);
+    console.log(id);
+
+    const results = await query(`SELECT * FROM posts WHERE id = ${id};`);
 
     res.json({ res: results });
   },
