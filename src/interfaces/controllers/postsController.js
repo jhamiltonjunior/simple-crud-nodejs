@@ -10,11 +10,11 @@ export default {
   },
 
   async unique(req, res) {
-    const { id } = req.params;
+    const { url } = req.params;
 
-    console.log(id);
+    console.log(url);
 
-    const results = await query(`SELECT * FROM posts WHERE id = ${id};`);
+    const results = await query(`SELECT * FROM posts WHERE url_params = ${url};`);
 
     res.json({ res: results });
   },
@@ -28,12 +28,12 @@ export default {
 
     const results = await query(
       `INSERT INTO posts (
-        title, body, author, created_at
+        title, body, author
       ) VALUES (
-        $1, $2, $3, $4
+        $1, $2, $3
       ) RETURNING *`,
 
-      [title, body, author, '09/09/2022'],
+      [title, body, author],
     );
 
     res.json({ res: results.rows });

@@ -12,7 +12,7 @@ const router = Router();
 
 router.get('/posts', index);
 
-router.get('/posts/id=:id', unique);
+router.get('/posts/:url', unique);
 
 router.post('/posts', create);
 
