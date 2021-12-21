@@ -14,7 +14,7 @@ export default {
 
     console.log(url);
 
-    const results = await query(`SELECT * FROM posts WHERE url_params = ${url};`);
+    const results = await query(`SELECT * FROM posts WHERE url_params = '${url}';`);
 
     res.json({ res: results });
   },
