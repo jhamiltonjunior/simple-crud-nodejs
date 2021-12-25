@@ -6,6 +6,7 @@ const {
   index,
   unique,
   create,
+  drop,
 } = posts;
 
 const router = Router();
@@ -18,6 +19,6 @@ router.post('/posts', create);
 
 // router.put('/posts/:id');
 
-// router.delete('/posts/:id');
+router.delete('/posts/:id', drop);
 
 export default (app) => app.use(router);

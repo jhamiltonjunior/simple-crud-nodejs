@@ -23,19 +23,28 @@ export default {
     const {
       title,
       body,
+      urlParams,
       author,
     } = req.body;
 
     const results = await query(
       `INSERT INTO posts (
-        title, body, author
+        title, body, url_params, author
       ) VALUES (
-        $1, $2, $3
+        $1, $2, $3, $4
       ) RETURNING *`,
 
-      [title, body, author],
+      [title, body, urlParams, author],
     );
 
     res.json({ res: results.rows });
+  },
+
+  async drop(req, res) {
+    const { id } = req.params;
+
+    await query(`DELETE FROM posts WHERE id = ${id}`);
+
+    res.json({ message: 'A postagem foi deletada' });
   },
 };

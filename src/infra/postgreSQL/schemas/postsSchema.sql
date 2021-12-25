@@ -1,3 +1,5 @@
+CREATE DATABASE nauts;
+
 DROP TABLE IF EXISTS posts;
 
 CREATE TABLE posts (
@@ -10,6 +12,8 @@ CREATE TABLE posts (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO posts (title, body, url_params, author) VALUES ('tITLE', 'NOT EXIST BODY', 'esse-e-meu-site', 'josé');
+INSERT INTO posts (title, body, url_params, author)
+VALUES ('tITLE', 'NOT EXIST BODY', 'esse-e-meu-site', 'Hamilton');
 
-INSERT INTO posts (title, body, url_params, author) VALUES ('Mais um', 'NOT EXIST BODY: false', 'como-fazer-algo', 'josé');
+INSERT INTO posts (title, body, url_params, author)
+VALUES ('Mais um', 'NOT EXIST BODY: false', 'como-fazer-algo', 'josé');

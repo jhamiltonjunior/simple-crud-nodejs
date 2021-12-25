@@ -7,7 +7,7 @@ const app = express();
 
 app.use(json());
 app.use(express.urlencoded({ extended: true }));
-app.use(json({ type: 'application/vnd.api+json' }));
+// app.use(json({ type: 'application/vnd.api+json' }));
 
 app.get('/', (req, res) => {
   res.send('Olá mundo');
