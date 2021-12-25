@@ -16,7 +16,7 @@ export default {
 
     const results = await query(`SELECT * FROM posts WHERE url_params = '${url}';`);
 
-    res.json({ res: results });
+    res.json({ res: results.rows });
   },
 
   async create(req, res) {
@@ -38,6 +38,29 @@ export default {
     );
 
     res.json({ res: results.rows });
+  },
+
+  async update(req, res) {
+    const { url } = req.params;
+    const {
+      title,
+      body,
+      urlParams,
+      author,
+    } = req.body;
+
+    const results = await query(
+      `UPDATE posts
+      SET
+      title = $1,
+      body = $2,
+      url_params = $3,
+      author = $4
+      WHERE url_params = '${url}' RETURNING *`,
+      [title, body, urlParams, author],
+    );
+
+    res.json({ res: results });
   },
 
   async drop(req, res) {

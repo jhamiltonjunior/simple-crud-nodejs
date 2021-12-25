@@ -6,6 +6,7 @@ const {
   index,
   unique,
   create,
+  update,
   drop,
 } = posts;
 
@@ -17,7 +18,7 @@ router.get('/posts/:url', unique);
 
 router.post('/posts', create);
 
-// router.put('/posts/:id');
+router.put('/posts/edit/:url', update);
 
 router.delete('/posts/:id', drop);
 
