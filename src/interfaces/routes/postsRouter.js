@@ -1,25 +1,17 @@
 import { Router } from 'express';
 
-import posts from '../controllers/postsController.js';
-
-const {
-  index,
-  unique,
-  create,
-  update,
-  drop,
-} = posts;
+import controller from '../controllers/postsController.js';
 
 const router = Router();
 
-router.get('/posts', index);
+router.get('/posts', controller.index);
 
-router.get('/posts/:url', unique);
+router.get('/posts/:url', controller.unique);
 
-router.post('/posts', create);
+router.post('/posts', controller.create);
 
-router.put('/posts/edit/:url', update);
+router.put('/posts/edit/:url', controller.update);
 
-router.delete('/posts/:id', drop);
+router.delete('/posts/:id', controller.drop);
 
 export default (app) => app.use(router);
