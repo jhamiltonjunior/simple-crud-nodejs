@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express, { json } from 'express';
 
-import router from './interfaces/routes/index.js';
+import router from './interface/routes/index.js';
 
 const app = express();
 
