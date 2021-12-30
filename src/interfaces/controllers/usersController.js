@@ -3,7 +3,7 @@ import postgresConfig from '../../config/postgres.js';
 const { query } = postgresConfig;
 
 export default {
-  async index(req, res) {
+  async index(_, res) {
     const results = await query('SELECT * FROM users;');
 
     res.json({ res: results.rows });
