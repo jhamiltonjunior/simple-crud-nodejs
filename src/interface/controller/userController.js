@@ -24,6 +24,7 @@ export default {
 
   async create(req, res) {
     const {
+      // eslint-disable-next-line camelcase
       id_people,
       username,
       fullname,
@@ -60,8 +61,9 @@ export default {
       ],
     );
 
-    const token = generateToken({ id: id_people });
-
-    res.json({ res: results.rows, token });
+    res.json({
+      res: results.rows,
+      token: generateToken({ id: id_people }),
+    });
   },
 };
