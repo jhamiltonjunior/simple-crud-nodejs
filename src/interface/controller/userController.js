@@ -1,6 +1,9 @@
 import postgresConfig from '../../config/postgres.js';
+import generateToken from './utils/generateToken.js';
 
 const { query } = postgresConfig;
+
+// const searchId = (params) => params.rows[0].id_people;
 
 export default {
   async index(_, res) {
@@ -21,17 +24,18 @@ export default {
 
   async create(req, res) {
     const {
+      id_people,
       username,
-      name,
+      fullname,
       email,
-      password,
+      passwd,
     } = req.body;
 
     if (!username) {
       res.json({ message: 'erro no seu username!' });
     }
 
-    if (!name) {
+    if (!fullname) {
       res.json({ message: 'erro no seu name!' });
     }
 
@@ -39,23 +43,25 @@ export default {
       res.json({ message: 'erro no seu email!' });
     }
 
-    if (!password) {
+    if (!passwd) {
       res.json({ message: 'erro no seu password!' });
     }
 
     const results = await query(
       `INSERT INTO people (
-      username, name, email, password
+      username, fullname, email, passwd
       )
       VALUES ($1, $2, $3, $4) RETURNING *`,
       [
         username,
-        name,
+        fullname,
         email,
-        password,
+        passwd,
       ],
     );
 
-    res.json({ res: results.rows });
+    const token = generateToken({ id: id_people });
+
+    res.json({ res: results.rows, token });
   },
 };

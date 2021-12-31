@@ -15,7 +15,7 @@ const generateTokenForWriter = (req, res, next) => {
 
   const keyForWriter = process.env.KEY_FOR_WRITER;
 
-  jwt.sign(token, keyForWriter, (err, decoded) => {
+  jwt.verify(token, keyForWriter, (err, decoded) => {
     const { user } = req;
 
     if (err) {

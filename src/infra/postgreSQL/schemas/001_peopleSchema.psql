@@ -2,19 +2,19 @@ DROP TABLE IF EXISTS people;
 
 CREATE TABLE people(
   id_people INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  admin BOOLEAN DEFAULT FALSE,
+  administrator BOOLEAN DEFAULT FALSE,
   moderator BOOLEAN DEFAULT FALSE,
   simple_people BOOLEAN DEFAULT TRUE,
   username VARCHAR(30) UNIQUE NOT NULL,
-  name TEXT NOT NULL,
+  fullname TEXT NOT NULL,
   email TEXT UNIQUE NOT NULL,
   passwd VARCHAR(20) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW() NOT NULL,
   updated_at TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO people (username, name, email, passwd)
+INSERT INTO people (username, fullname, email, passwd)
 VALUES ('jhsj', 'Hamilton', 'hamilton@gmail.com', '12345');
 
-INSERT INTO people (username, name, email, passwd)
+INSERT INTO people (username, fullname, email, passwd)
 VALUES ('jose', 'Josés', 'jose@gmail.com', '123456');
