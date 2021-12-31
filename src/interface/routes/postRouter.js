@@ -12,6 +12,6 @@ router.post('/post', controller.create);
 
 router.put('/post/edit/:url', controller.update);
 
-router.delete('/post/:id', controller.drop);
+router.delete('/post/:id', controller.delete);
 
 export default (app) => app.use(router);

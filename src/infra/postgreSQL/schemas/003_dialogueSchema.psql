@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS dialogue;
+
+CREATE TABLE dialogue(
+  id_dialogue INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  id_post INT,
+  id_author INT,
+  title VARCHAR(60) NOT NULL,
+  body TEXT NOT NULL,
+  FOREIGN KEY(id_post)
+    REFERENCES post(id_post)
+      ON UPDATE CASCADE
+        ON DELETE CASCADE,
+  FOREIGN KEY(id_author)
+    REFERENCES people(id_people)
+      ON UPDATE CASCADE
+);
+
+INSERT INTO dialogue (id_post, id_author, title, body)
+VALUES (1, 2, 'Se hoje fosse amanhã que dia seria ontem?', 'Essa é minha dúvida');
+
+INSERT INTO dialogue (id_post, id_author, title, body)
+VALUES (1, 2, 'Como Hackear a NASA completo pt-BR', 'METODO INFALIVEL');
+
+INSERT INTO dialogue (id_post, id_author, title, body)
+VALUES (2, 1, 'Como fazer SQL Inject no MongoDB', 'Será que em 2022 isso ainda é possível?');

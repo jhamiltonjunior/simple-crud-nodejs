@@ -4,7 +4,7 @@ const { query } = postgresConfig;
 
 export default {
   async index(_, res) {
-    const results = await query('SELECT * FROM users;');
+    const results = await query('SELECT * FROM people;');
 
     res.json({ res: results.rows });
   },
@@ -14,7 +14,7 @@ export default {
 
     // console.log(username);
 
-    const results = await query(`SELECT * FROM users WHERE username = '${username}';`);
+    const results = await query(`SELECT * FROM people WHERE username = '${username}';`);
 
     res.json({ res: results.rows });
   },
@@ -44,7 +44,7 @@ export default {
     }
 
     const results = await query(
-      `INSERT INTO users (
+      `INSERT INTO people (
       username, name, email, password
       )
       VALUES ($1, $2, $3, $4) RETURNING *`,

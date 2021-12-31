@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import Queue from './interfaces/lib/Queue.js';
+import Queue from './interface/lib/Queue.js';
 
 /*
   dentro do process eu coloco a função que vai

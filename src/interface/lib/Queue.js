@@ -3,7 +3,7 @@ import Queue from 'bull';
 import redisConfig from '../../config/redis.js';
 // import RegistrationMail from '../jobs/RegistrationMail.js';
 
-import * as jobs from '../jobs/index.js';
+import * as jobs from '../job/index.js';
 
 const queues = Object.values(jobs).map((job) => ({
   bull: new Queue(job.key, redisConfig),
