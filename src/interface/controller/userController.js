@@ -3,7 +3,7 @@ import generateToken from './utils/generateToken.js';
 
 const { query } = postgresConfig;
 
-// const searchId = (params) => params.rows[0].id_people;
+const getId = (params) => params.rows[0].id_people;
 
 export default {
   async index(_, res) {
@@ -24,29 +24,27 @@ export default {
 
   async create(req, res) {
     const {
-      // eslint-disable-next-line camelcase
-      id_people,
       username,
       fullname,
       email,
       passwd,
     } = req.body;
 
-    if (!username) {
-      res.json({ message: 'erro no seu username!' });
-    }
+    // if (!username) {
+    //   res.json({ message: 'erro no seu username!' });
+    // }
 
-    if (!fullname) {
-      res.json({ message: 'erro no seu name!' });
-    }
+    // if (!fullname) {
+    //   res.json({ message: 'erro no seu name!' });
+    // }
 
-    if (!email) {
-      res.json({ message: 'erro no seu email!' });
-    }
+    // if (!email) {
+    //   res.json({ message: 'erro no seu email!' });
+    // }
 
-    if (!passwd) {
-      res.json({ message: 'erro no seu password!' });
-    }
+    // if (!passwd) {
+    //   res.json({ message: 'erro no seu password!' });
+    // }
 
     const results = await query(
       `INSERT INTO people (
@@ -63,7 +61,7 @@ export default {
 
     res.json({
       res: results.rows,
-      token: generateToken({ id: id_people }),
+      token: generateToken({ id: getId(results) }),
     });
   },
 };

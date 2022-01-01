@@ -46,8 +46,10 @@ export default {
       title,
       body,
       urlParams,
-      author,
     } = req.body;
+
+    const { client: { idPeople } } = req;
+    console.log(idPeople);
 
     const results = await query(
       `INSERT INTO post (
@@ -56,7 +58,12 @@ export default {
         $1, $2, $3, $4
       ) RETURNING *`,
 
-      [title, body, urlParams, author],
+      [
+        title,
+        body,
+        urlParams,
+        idPeople,
+      ],
     );
 
     res.json({ res: results.rows });
