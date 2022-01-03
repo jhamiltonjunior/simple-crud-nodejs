@@ -6,6 +6,8 @@ CREATE TABLE dialogue(
   id_author INT,
   title VARCHAR(60) NOT NULL,
   body TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW() NOT NULL,
+  updated_at TIMESTAMP DEFAULT NULL,
   FOREIGN KEY(id_post)
     REFERENCES post(id_post)
       ON UPDATE CASCADE

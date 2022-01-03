@@ -7,61 +7,73 @@ const getId = (params) => params.rows[0].id_people;
 
 export default {
   async index(_, res) {
-    const results = await query('SELECT * FROM people;');
+    try {
+      const results = await query('SELECT * FROM people;');
 
-    res.json({ res: results.rows });
+      res.json({ res: results.rows });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   async unique(req, res) {
-    const { username } = req.params;
+    try {
+      const { username } = req.params;
 
-    // console.log(username);
+      // console.log(username);
 
-    const results = await query(`SELECT * FROM people WHERE username = '${username}';`);
+      const results = await query(`SELECT * FROM people WHERE username = '${username}';`);
 
-    res.json({ res: results.rows });
+      res.json({ res: results.rows });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   async create(req, res) {
-    const {
-      username,
-      fullname,
-      email,
-      passwd,
-    } = req.body;
-
-    // if (!username) {
-    //   res.json({ message: 'erro no seu username!' });
-    // }
-
-    // if (!fullname) {
-    //   res.json({ message: 'erro no seu name!' });
-    // }
-
-    // if (!email) {
-    //   res.json({ message: 'erro no seu email!' });
-    // }
-
-    // if (!passwd) {
-    //   res.json({ message: 'erro no seu password!' });
-    // }
-
-    const results = await query(
-      `INSERT INTO people (
-      username, fullname, email, passwd
-      )
-      VALUES ($1, $2, $3, $4) RETURNING *`,
-      [
+    try {
+      const {
         username,
         fullname,
         email,
         passwd,
-      ],
-    );
+      } = req.body;
 
-    res.json({
-      res: results.rows,
-      token: generateToken({ id: getId(results) }),
-    });
+      // if (!username) {
+      //   res.json({ message: 'erro no seu username!' });
+      // }
+
+      // if (!fullname) {
+      //   res.json({ message: 'erro no seu name!' });
+      // }
+
+      // if (!email) {
+      //   res.json({ message: 'erro no seu email!' });
+      // }
+
+      // if (!passwd) {
+      //   res.json({ message: 'erro no seu password!' });
+      // }
+
+      const results = await query(
+        `INSERT INTO people (
+      username, fullname, email, passwd
+      )
+      VALUES ($1, $2, $3, $4) RETURNING *`,
+        [
+          username,
+          fullname,
+          email,
+          passwd,
+        ],
+      );
+
+      res.json({
+        res: results.rows,
+        token: generateToken({ id: getId(results) }),
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
 };

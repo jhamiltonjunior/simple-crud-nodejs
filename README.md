@@ -3,7 +3,7 @@
     - Pesquisas de posts
     - Filtros
     - Scroll infinito ou Paginação para mais posts
-    - pegar o conteúdo do CKEditor e gerar meus posts
+    - pegar o conteúdo do Quill.js e gerar meus posts
 
   - Pages
     - Home
@@ -18,7 +18,7 @@
 
 - Oque você precisa instalar no seu PC (para usar em full localhost)
   - redis
-  - MongoDB
+  - PostgreSQL
 
 - Next Step
   - Controller para a listagem, criação, atualização e deleção de um artigo

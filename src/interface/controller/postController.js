@@ -7,96 +7,115 @@ const searchPost = (params) => params.rows[0].id_post;
 
 export default {
   async index(req, res) {
-    const results = await query('SELECT * FROM post;');
+    try {
+      const results = await query('SELECT * FROM post;');
 
-    res.json({ res: results.rows });
+      res.json({ res: results.rows });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   async unique(req, res) {
-    const { url } = req.params;
+    try {
+      const { url } = req.params;
 
-    console.log(url);
+      console.log(url);
 
-    const post = await query(`SELECT * FROM post WHERE url = '${url}';`);
+      const post = await query(`SELECT * FROM post WHERE url = '${url}';`);
 
-    const author = await query(
-      `SELECT * FROM people WHERE id_people = ${searchAuthor(post)}`,
-    );
+      const author = await query(
+        `SELECT * FROM people WHERE id_people = ${searchAuthor(post)}`,
+      );
 
-    const dialogue = await query(
-      `SELECT * FROM dialogue WHERE id_post = ${searchPost(post)}`,
-    );
+      const dialogue = await query(
+        `SELECT * FROM dialogue WHERE id_post = ${searchPost(post)}`,
+      );
 
-    const dialogueAuthor = await query(
-      `SELECT * FROM people WHERE id_people = ${searchAuthor(dialogue)}`,
-    );
+      const dialogueAuthor = await query(
+        `SELECT * FROM people WHERE id_people = ${searchAuthor(dialogue)}`,
+      );
 
-    console.log(searchAuthor(post));
+      console.log(searchAuthor(post));
 
-    res.json({
-      post: post.rows,
-      author: author.rows,
-      comment: dialogue.rows,
-      authorComment: dialogueAuthor.rows,
-    });
+      res.json({
+        post: post.rows,
+        author: author.rows,
+        comment: dialogue.rows,
+        authorComment: dialogueAuthor.rows,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   async create(req, res) {
-    const {
-      title,
-      body,
-      urlParams,
-    } = req.body;
+    try {
+      const {
+        title,
+        body,
+        urlParams,
+      } = req.body;
 
-    const { client: { idPeople } } = req;
-    console.log(idPeople);
+      const { client: { idPeople } } = req;
 
-    const results = await query(
-      `INSERT INTO post (
+      const results = await query(
+        `INSERT INTO post (
         title, body, url, id_author
       ) VALUES (
         $1, $2, $3, $4
       ) RETURNING *`,
 
-      [
-        title,
-        body,
-        urlParams,
-        idPeople,
-      ],
-    );
+        [
+          title,
+          body,
+          urlParams,
+          idPeople,
+        ],
+      );
 
-    res.json({ res: results.rows });
+      res.json({ res: results.rows });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   async update(req, res) {
-    const { url } = req.params;
-    const {
-      title,
-      body,
-      urlParams,
-      author,
-    } = req.body;
+    try {
+      const { url } = req.params;
+      const {
+        title,
+        body,
+        urlParams,
+        author,
+      } = req.body;
 
-    const results = await query(
-      `UPDATE post
+      const results = await query(
+        `UPDATE post
       SET
       title = $1,
       body = $2,
       url = $3,
       id_author = $4
       WHERE url = '${url}' RETURNING *`,
-      [title, body, urlParams, author],
-    );
+        [title, body, urlParams, author],
+      );
 
-    res.json({ res: results });
+      res.json({ res: results });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   async delete(req, res) {
-    const { id } = req.params;
+    try {
+      const { id } = req.params;
 
-    await query(`DELETE FROM post WHERE id_post = ${id}`);
+      await query(`DELETE FROM post WHERE id_post = ${id}`);
 
-    res.json({ message: 'A postagem foi deletada' });
+      res.json({ message: 'A postagem foi deletada' });
+    } catch (err) {
+      console.log(err);
+    }
   },
 };
