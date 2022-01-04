@@ -3,9 +3,8 @@ import { Router } from 'express';
 import sendMail from '../controller/mailController.js';
 
 const router = Router();
-const { store } = sendMail;
 
-router.post('/mail', store);
+router.post('/mail', sendMail.store);
 
 export default (app) => app.use(router);
 

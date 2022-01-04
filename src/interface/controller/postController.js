@@ -1,14 +1,17 @@
-import postConfig from '../../config/postgres.js';
+import postgresConfig from '../../config/postgres.js';
+import Queue from '../lib/Queue.js';
 
-const { query } = postConfig;
+const { query } = postgresConfig;
 
-const searchAuthor = (params) => params.rows[0].id_author;
-const searchPost = (params) => params.rows[0].id_post;
+const getAuthor = (params) => params.rows[0].id_author;
+const getPost = (params) => params.rows[0].id_post;
 
 export default {
   async index(req, res) {
     try {
-      const results = await query('SELECT * FROM post;');
+      const results = await query(
+        'SELECT * FROM post ORDER BY created_at DESC LIMIT 5;',
+      );
 
       res.json({ res: results.rows });
     } catch (err) {
@@ -20,23 +23,19 @@ export default {
     try {
       const { url } = req.params;
 
-      console.log(url);
-
       const post = await query(`SELECT * FROM post WHERE url = '${url}';`);
 
       const author = await query(
-        `SELECT * FROM people WHERE id_people = ${searchAuthor(post)}`,
+        `SELECT * FROM people WHERE id_people = ${getAuthor(post)}`,
       );
 
       const dialogue = await query(
-        `SELECT * FROM dialogue WHERE id_post = ${searchPost(post)}`,
+        `SELECT * FROM dialogue WHERE id_post = ${getPost(post)}`,
       );
 
       const dialogueAuthor = await query(
-        `SELECT * FROM people WHERE id_people = ${searchAuthor(dialogue)}`,
+        `SELECT * FROM people WHERE id_people = ${getAuthor(dialogue)}`,
       );
-
-      console.log(searchAuthor(post));
 
       res.json({
         post: post.rows,
@@ -100,6 +99,8 @@ export default {
       WHERE url = '${url}' RETURNING *`,
         [title, body, urlParams, author],
       );
+
+      Queue.add('UpdatePost', { results });
 
       res.json({ res: results });
     } catch (err) {
