@@ -9,8 +9,16 @@ const getPost = (params) => params.rows[0].id_post;
 export default {
   async index(req, res) {
     try {
+      const { quantity } = req.params;
+
+      // DESC LIMIT 5
+
       const results = await query(
-        'SELECT * FROM post ORDER BY created_at DESC LIMIT 5;',
+        `SELECT * FROM post
+          ORDER BY id_post 
+            DESC FETCH FIRST 5 
+              ROW ONLY OFFSET ${quantity};
+        `,
       );
 
       res.json({ res: results.rows });

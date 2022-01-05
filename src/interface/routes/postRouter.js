@@ -5,7 +5,7 @@ import auth from '../middleware/authOnly.js';
 
 const router = Router();
 
-router.get('/post', controller.index);
+router.get('/post/pages=:quantity', controller.index);
 
 router.get('/post/:url', controller.unique);
 
