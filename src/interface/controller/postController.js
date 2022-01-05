@@ -16,8 +16,8 @@ export default {
       const results = await query(
         `SELECT * FROM post
           ORDER BY id_post 
-            DESC FETCH FIRST 5 
-              ROW ONLY OFFSET ${quantity};
+            DESC LIMIT 5
+              OFFSET ${quantity};
         `,
       );
 
