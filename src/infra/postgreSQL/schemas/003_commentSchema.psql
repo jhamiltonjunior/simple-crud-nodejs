@@ -1,27 +1,27 @@
-DROP TABLE IF EXISTS dialogue;
+DROP TABLE IF EXISTS comment_schema;
 
-CREATE TABLE dialogue(
-  id_dialogue INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  id_post INT,
-  id_author INT,
+CREATE TABLE comment_schema(
+  comment_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  post_id INT,
+  user_id INT,
   title VARCHAR(60) NOT NULL,
   body TEXT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW() NOT NULL,
   updated_at TIMESTAMP DEFAULT NULL,
-  FOREIGN KEY(id_post)
-    REFERENCES post(id_post)
+  FOREIGN KEY(post_id)
+    REFERENCES post(post_id)
       ON UPDATE CASCADE
         ON DELETE CASCADE,
-  FOREIGN KEY(id_author)
-    REFERENCES people(id_people)
+  FOREIGN KEY(user_id)
+    REFERENCES user_schema(user_id)
       ON UPDATE CASCADE
 );
 
-INSERT INTO dialogue (id_post, id_author, title, body)
+INSERT INTO dialogue (post_id, user_id, title, body)
 VALUES (1, 2, 'Se hoje fosse amanhã que dia seria ontem?', 'Essa é minha dúvida');
 
-INSERT INTO dialogue (id_post, id_author, title, body)
+INSERT INTO dialogue (post_id, user_id, title, body)
 VALUES (1, 2, 'Como Hackear a NASA completo pt-BR', 'METODO INFALIVEL');
 
-INSERT INTO dialogue (id_post, id_author, title, body)
+INSERT INTO dialogue (post_id, user_id, title, body)
 VALUES (2, 1, 'Como fazer SQL Inject no MongoDB', 'Será que em 2022 isso ainda é possível?');

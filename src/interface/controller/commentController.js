@@ -2,7 +2,7 @@ import postgresConfig from '../../config/postgres.js';
 
 const { query } = postgresConfig;
 
-const getId = (params) => params.rows[0].id_post;
+const getId = (params) => params.rows[0].post_id;
 
 export default {
   async create(req, res) {
@@ -13,10 +13,10 @@ export default {
         body: { title, body },
       } = req;
 
-      const post = await query(`SELECT * FROM post WHERE url = '${url}'`);
+      const post = await query(`SELECT * FROM post_schema WHERE url = '${url}'`);
 
       const dialogue = await query(
-        `INSERT INTO dialogue (id_post, id_author, title, body)
+        `INSERT INTO comment_schema (post_id, user_id, title, body)
         VALUES ($1, $2, $3, $4)
         RETURNING *`,
 

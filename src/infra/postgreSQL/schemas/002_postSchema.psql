@@ -2,24 +2,24 @@
 DROP TABLE IF EXISTS dialogue;
 DROP TABLE IF EXISTS people;
 */
-DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS post_schema;
 
-CREATE TABLE post(
-  id_post INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+CREATE TABLE post_schema(
+  post_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   title TEXT NOT NULL,
   body TEXT NOT NULL,
   url VARCHAR(60) UNIQUE NOT NULL,
   created_at TIMESTAMP DEFAULT NOW() NOT NULL,
   updated_at TIMESTAMP DEFAULT NOW(),
-  id_author INT,
-  FOREIGN KEY(id_author)
-    REFERENCES people(id_people)
+  user_id INT,
+  FOREIGN KEY(user_id)
+    REFERENCES user_schema(user_id)
       ON DELETE CASCADE
         ON UPDATE CASCADE
 );
 
-INSERT INTO post (title, body, url, id_author)
+INSERT INTO post (title, body, url, user_id)
 VALUES ('tITLE', 'NOT EXIST BODY', 'esse-e-meu-site', 1);
 
-INSERT INTO post (title, body, url, id_author)
+INSERT INTO post (title, body, url, user_id)
 VALUES ('Mais um', 'NOT EXIST BODY: false', 'como-fazer-algo', 2);

@@ -3,12 +3,12 @@ import generateToken from './utils/generateToken.js';
 
 const { query } = postgresConfig;
 
-const getId = (params) => params.rows[0].id_people;
+const getId = (params) => params.rows[0].user_id;
 
 export default {
   async index(_, res) {
     try {
-      const results = await query('SELECT * FROM people;');
+      const results = await query('SELECT * FROM user_schema;');
 
       res.json({ res: results.rows });
     } catch (err) {
@@ -22,7 +22,7 @@ export default {
 
       // console.log(username);
 
-      const results = await query(`SELECT * FROM people WHERE username = '${username}';`);
+      const results = await query(`SELECT * FROM user_schema WHERE username = '${username}';`);
 
       res.json({ res: results.rows });
     } catch (err) {
@@ -56,7 +56,7 @@ export default {
       // }
 
       const results = await query(
-        `INSERT INTO people (
+        `INSERT INTO user_schema (
       username, fullname, email, passwd
       )
       VALUES ($1, $2, $3, $4) RETURNING *`,

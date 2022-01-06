@@ -3,23 +3,18 @@ import Queue from '../lib/Queue.js';
 
 const { query } = postgresConfig;
 
-const getAuthor = (params) => params.rows[0].id_author;
-const getPost = (params) => params.rows[0].id_post;
+const getAuthor = (params) => params.rows[0].user_id;
+const getPost = (params) => params.rows[0].post_id;
 
 export default {
   async index(req, res) {
     try {
       const { quantity } = req.params;
 
-      // DESC LIMIT 5
-
-      const results = await query(
-        `SELECT * FROM post
-          ORDER BY id_post 
-            DESC LIMIT 5
-              OFFSET ${quantity};
-        `,
-      );
+      const results = await query(`
+        SELECT * FROM post ORDER BY post_id
+        DESC LIMIT 5 OFFSET ${quantity};
+      `);
 
       res.json({ res: results.rows });
     } catch (err) {
@@ -31,18 +26,18 @@ export default {
     try {
       const { url } = req.params;
 
-      const post = await query(`SELECT * FROM post WHERE url = '${url}';`);
+      const post = await query(`SELECT * FROM post_schema WHERE url = '${url}';`);
 
       const author = await query(
-        `SELECT * FROM people WHERE id_people = ${getAuthor(post)}`,
+        `SELECT * FROM people WHERE user_id = ${getAuthor(post)}`,
       );
 
       const dialogue = await query(
-        `SELECT * FROM dialogue WHERE id_post = ${getPost(post)}`,
+        `SELECT * FROM comment_schema WHERE post_id = ${getPost(post)}`,
       );
 
       const dialogueAuthor = await query(
-        `SELECT * FROM people WHERE id_people = ${getAuthor(dialogue)}`,
+        `SELECT * FROM user_schema WHERE user_id = ${getAuthor(dialogue)}`,
       );
 
       res.json({
