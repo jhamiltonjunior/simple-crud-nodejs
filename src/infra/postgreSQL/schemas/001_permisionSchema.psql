@@ -1,3 +1,0 @@
-administrator BOOLEAN DEFAULT FALSE,
-  moderator BOOLEAN DEFAULT FALSE,
-  simple_people BOOLEAN DEFAULT TRUE,

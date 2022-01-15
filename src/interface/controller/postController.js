@@ -12,7 +12,7 @@ export default {
       const { quantity } = req.params;
 
       const results = await query(`
-        SELECT * FROM post ORDER BY post_id
+        SELECT * FROM post_schema ORDER BY post_id
         DESC LIMIT 5 OFFSET ${quantity};
       `);
 
@@ -29,7 +29,7 @@ export default {
       const post = await query(`SELECT * FROM post_schema WHERE url = '${url}';`);
 
       const author = await query(
-        `SELECT * FROM people WHERE user_id = ${getAuthor(post)}`,
+        `SELECT * FROM user_schema WHERE user_id = ${getAuthor(post)}`,
       );
 
       const dialogue = await query(
@@ -62,7 +62,7 @@ export default {
       const { client: { idPeople } } = req;
 
       const results = await query(
-        `INSERT INTO post (
+        `INSERT INTO post_schema (
         title, body, url, id_author
       ) VALUES (
         $1, $2, $3, $4
@@ -93,7 +93,7 @@ export default {
       } = req.body;
 
       const results = await query(
-        `UPDATE post
+        `UPDATE post_schema
       SET
       title = $1,
       body = $2,
@@ -115,7 +115,7 @@ export default {
     try {
       const { id } = req.params;
 
-      await query(`DELETE FROM post WHERE id_post = ${id}`);
+      await query(`DELETE FROM post_schema WHERE post_id = ${id}`);
 
       res.json({ message: 'A postagem foi deletada' });
     } catch (err) {

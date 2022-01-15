@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS permission_schema;
+
+CREATE TABLE permission_schema(
+  permission_name 
+)
+
+administrator BOOLEAN DEFAULT FALSE,
+  moderator BOOLEAN DEFAULT FALSE,
+  simple_people BOOLEAN DEFAULT TRUE,
