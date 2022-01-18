@@ -5,6 +5,9 @@
     --color-logo-primary: #FDDD7B;
     --color-logo-secondary: #FF7E26;
 
+    --color-svg-light: #5F6AFF;
+    --color-svg-light: #5864FF;
+
     --color-primary-lighter: #a0b6ff;
     --color-primary-light: #819ff3;
     --color-primary: #6288e7;
@@ -15,7 +18,7 @@
     --color-secondary: #22a089;
     --color-secondary-dark: #118d77;
 
-    --color-background: #F0F0F7;
+    --color-background: #EEEFFF;
     --color-header-background: #f0f0f7c7;
 
     
@@ -24,7 +27,7 @@
     --color-text-title: #32264D;
 
     --color-text-complement: #9C98A6;
-    --color-text-base: #6A6180;
+    --color-text-base: #4f495f;
 
     --color-line-in-white: #E6E6F0;
 
@@ -49,6 +52,8 @@
     --color-emphasis: white;
 
     --border-radius-default: 40px;
+
+    --transition-default: .3s;
 
     --border-style-default: 2.5px solid var(--color-emphasis);
 

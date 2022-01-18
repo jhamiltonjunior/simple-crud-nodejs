@@ -42,11 +42,16 @@ a {
 
 .button--default {
   cursor: pointer;
+  transition: var(--transition-default);
   padding:
     var(--padding-top-default-button)
     var(--padding-left-default-button);
   border: var(--border-style-default);
   border-radius: var(--border-radius-default);
+}
+
+.button--default:hover {
+  background-color: rgba(255, 255, 255, 0.123);
 }
 
 .emphasis--color {

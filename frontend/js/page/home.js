@@ -1,5 +1,10 @@
+// sempre colocar os arquivos mais importantes por ultimo
+
 import '../../css/variable.css';
 import '../../css/default.css';
+import '../../css/animation.css';
 import '../../css/page/home.css';
 
-console.log('Olá');
+import { target } from '../animation.js';
+
+console.log(target);

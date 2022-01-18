@@ -1,0 +1,23 @@
+[data-anime] {
+  opacity: 0;
+}
+
+[data-animation="left"] {
+  transform: translate3d(60px, 0, 0);
+}
+
+[data-animation="right"] {
+  transform: translate3d(-60px, 0, 0);
+}
+
+[data-animation="left"].animate {
+  opacity: 1;
+  transition: .8s;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+[data-animation="right"].animate {
+  opacity: 1;
+  transition: .8s;
+  transform: translate3d(0px, 0px, 0px);
+}
