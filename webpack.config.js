@@ -10,31 +10,19 @@ module.exports = {
     filename: '[name].bundle.js',
   },
   module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
+    rules: [{
+      exclude: /node_modules/,
+      test: /\.js$/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/env'],
         },
       },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-            },
-          },
-        ],
-      },
-    ],
+    }, {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+    }],
   },
-
   devtool: 'source-map',
 };

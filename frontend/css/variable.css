@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&display=swap');
+
 :root {
     --color-logo-primary: #FDDD7B;
     --color-logo-secondary: #FF7E26;
@@ -13,6 +16,7 @@
     --color-secondary-dark: #118d77;
 
     --color-background: #F0F0F7;
+    --color-header-background: #f0f0f7c7;
 
     
     --color-title-in-primary: #FFFFFF;
@@ -32,6 +36,24 @@
     --color-box-footer: #FAFAFC;
 
     --color-small-info: #C1BCCC;
-    /*font-size: 60%; /* controle das medidas rem */
+    
     --container-max-size: 1320px;
+    --container-size: 98%;
+    
+    --align-center: 0 auto;
+
+    --padding-default: 1rem;
+    --padding-top-default-button: .6rem;
+    --padding-left-default-button: 1.2rem;
+
+    --color-emphasis: white;
+
+    --border-radius-default: 40px;
+
+    --border-style-default: 2.5px solid var(--color-emphasis);
+
+    --font-size: 1.2rem;
+    --primary-font-family: 'Nunito', sans-serif;
+    
+    --secondary-font-family: 'Arimo', sans-serif;
 }
