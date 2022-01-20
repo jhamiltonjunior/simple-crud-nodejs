@@ -5,7 +5,7 @@
     --color-logo-primary: #FDDD7B;
     --color-logo-secondary: #FF7E26;
 
-    --color-svg-light: #5F6AFF;
+    --color-svg-lighter: #5F6AFF;
     --color-svg-light: #5864FF;
 
     --color-primary-lighter: #a0b6ff;
@@ -54,6 +54,7 @@
     --border-radius-default: 40px;
 
     --transition-default: .3s;
+    --transition-secondary: .8s;
 
     --border-style-default: 2.5px solid var(--color-emphasis);
 

@@ -1,5 +1,5 @@
 import postgresConfig from '../../config/postgres.js';
-import generateToken from './utils/generateToken.js';
+import generateToken from './util/generateToken.js';
 
 const { query } = postgresConfig;
 

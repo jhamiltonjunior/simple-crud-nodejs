@@ -5,6 +5,4 @@ import '../../css/default.css';
 import '../../css/animation.css';
 import '../../css/page/home.css';
 
-import { target } from '../animation.js';
-
-console.log(target);
+import '../animation.js';

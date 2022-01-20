@@ -1,16 +1,19 @@
 .header-home {
+  z-index: 982;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   padding: .9rem 0;
-  /* background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
-  border-bottom: 0.5px solid rgb(177, 177, 177); */
 }
 
 .header-home__logo--title {
   color: white;
   font-size: 130%;
+}
+
+.h-logo--scroll {
+  color: #5864FF;
 }
 
 .home-link {
@@ -23,6 +26,10 @@
   height: 100px;
   font-size: 110%;
   border-bottom: 4px solid var(--color-logo-secondary);
+}
+
+a.color-black {
+  color: black;
 }
 
 .home-link__size {
@@ -70,6 +77,10 @@
          SPECIFY CONTENT
 
 */
+
+.specify {
+  padding-top: 3%;
+}
 
 .sepcify-container {
   width: 100%;

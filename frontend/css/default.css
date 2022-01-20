@@ -6,12 +6,13 @@
   box-sizing: border-box;
   font-family: var(--primary-font-family);
   font-size: var(--font-size);
+  scroll-behavior: smooth;
 }
 
 html, body {
   height: 100%;
   /* background-color: var(--color-secondary-dark); */
-  height:900vh;
+  min-height:200vh;
 }
 
 h1 {
@@ -37,7 +38,7 @@ ol, li {
 
 a {
   text-decoration: none;
-  color: var(--color-primary-darker);
+  color: black;
 }
 
 .button--default {
