@@ -76,6 +76,44 @@ window.addEventListener('scroll', function () {
 
 /***/ }),
 
+/***/ "./frontend/js/util/setImage.js":
+/*!**************************************!*\
+  !*** ./frontend/js/util/setImage.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SetImage)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var SetImage = /*#__PURE__*/function () {
+  function SetImage(url, id) {
+    _classCallCheck(this, SetImage);
+
+    this.url = url;
+    this.img = document.getElementById(id);
+  }
+
+  _createClass(SetImage, [{
+    key: "innerImage",
+    value: function innerImage() {
+      this.img.src = this.url;
+    }
+  }]);
+
+  return SetImage;
+}();
+
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./frontend/css/animation.css":
 /*!**************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./frontend/css/animation.css ***!
@@ -925,13 +963,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_default_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css/default.css */ "./frontend/css/default.css");
 /* harmony import */ var _css_animation_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../css/animation.css */ "./frontend/css/animation.css");
 /* harmony import */ var _css_page_home_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../css/page/home.css */ "./frontend/css/page/home.css");
-/* harmony import */ var _animation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../animation.js */ "./frontend/js/animation.js");
+/* harmony import */ var _util_setImage_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/setImage.js */ "./frontend/js/util/setImage.js");
+/* harmony import */ var _animation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../animation.js */ "./frontend/js/animation.js");
 // sempre colocar os arquivos mais importantes por ultimo
 
 
 
 
 
+
+new _util_setImage_js__WEBPACK_IMPORTED_MODULE_4__["default"]('http://localhost:5000/img/page/home/hero-img.png', 'hero-head-line').innerImage();
 })();
 
 /******/ })()

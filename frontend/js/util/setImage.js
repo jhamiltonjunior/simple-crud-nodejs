@@ -1,9 +1,11 @@
-export default class setImage {
-  constructor(site, path, element) {
-    this.site = site;
-    this.path = path;
-    this.element = element;
+export default class SetImage {
+  constructor(url, id) {
+    this.url = url;
+
+    this.img = document.getElementById(id);
   }
 
-  store() {}
+  innerImage() {
+    this.img.src = this.url;
+  }
 }
