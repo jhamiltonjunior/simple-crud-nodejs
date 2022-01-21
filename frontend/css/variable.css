@@ -57,6 +57,7 @@
     --transition-secondary: .8s;
 
     --border-style-default: 2.5px solid var(--color-emphasis);
+    --border-style-secondary: 2.5px solid black;
 
     --font-size: 1.2rem;
     --primary-font-family: 'Nunito', sans-serif;

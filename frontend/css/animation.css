@@ -65,3 +65,25 @@
   transition: var(--transition-secondary);
   transform: translate3d(0px, 0px, 0px);
 }
+
+[data-all-animation-emphasis="left"] {
+  transform: translate3d(0px, 0, 0);
+  transition: var(--transition-secondary);
+}
+
+[data-all-animation-emphasis="left"].animate-emphasis {
+  opacity: 1;
+  transition: var(--transition-secondary);
+  transform: translate3d(65px, 0px, 0px);
+}
+
+[data-all-animation-emphasis="right"] {
+  transform: translate3d(0px, 0, 0);
+  transition: var(--transition-secondary);
+}
+
+[data-all-animation-emphasis="right"].animate-emphasis {
+  opacity: 1;
+  transition: var(--transition-secondary);
+  transform: translate3d(-65px, 0px, 0px);
+}

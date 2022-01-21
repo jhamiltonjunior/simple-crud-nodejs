@@ -58,7 +58,7 @@ a.color-black {
   width: 100%;
   min-height: 979px;
   margin: var(--align-center);
-  background-image: url('http://localhost:5000/img/page/home/hero-bg.svg');
+  background-image: url('http://localhost:5000/img/background-svg/hero-bg.svg');
   background-repeat: no-repeat;
   background-position: top;
 }
@@ -79,7 +79,7 @@ a.color-black {
 */
 
 .specify {
-  padding-top: 3%;
+  padding: 2% 0 8%;
 }
 
 .sepcify-container {
@@ -116,4 +116,35 @@ a.color-black {
 .icon-home {
   color: var(--color-primary-dark);
   font-size: 400%;
+}
+
+/*
+
+    emphasis  
+
+*/
+
+.emphasis-container {
+  height: 600px;
+  /* padding: 0 250px 0; */
+  background-image: url('http://localhost:5000/img/background-svg/about-left-shape.svg');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+}
+
+.emphasis-item {
+  width: 46%;
+}
+
+.emphasis--image {
+  box-shadow: 1px 0px 9px .1px;
+  max-width: 533px;
+  max-height: 314px;
+  border-radius: 8px;
+}
+
+
+.emphasis--backgrund-svg {
+  max-width: 1800px;
 }

@@ -12,3 +12,8 @@ new SetImage(
   'http://localhost:5000/img/page/home/hero-img.png',
   'hero-head-line',
 ).innerImage();
+
+new SetImage(
+  'http://localhost:5000/img/emphasis/initial-page.png',
+  'initial-page',
+).innerImage();

@@ -1,10 +1,12 @@
 export const header = document.querySelectorAll('[data-animate-header]');
 export const elementPrimary = document.querySelectorAll('[data-animation-primary]');
-export const allElements = document.querySelectorAll('[data-all-animation]');
+export const allElementsSpecify = document.querySelectorAll('[data-all-animation-specify]');
+export const allElementsEmphasis = document.querySelectorAll('[data-all-animation-emphasis]');
 export const homeLink = document.querySelectorAll('.home-link');
 export const logo = document.querySelector('.header-home__logo--title');
 
 const animate = 'animate';
+const animateEmphasis = 'animate-emphasis';
 const resetColor = 'color-black';
 
 setTimeout(() => {
@@ -53,12 +55,27 @@ window.addEventListener('scroll', () => {
   const windowTop = window.pageYOffset;
   const windowHeight = ((window.innerHeight) / 4);
 
-  allElements.forEach((element) => {
+  allElementsSpecify.forEach((element) => {
     if ((windowTop) > windowHeight) {
       element.classList.add(animate);
     } else {
-      allElements.forEach((el) => {
+      allElementsSpecify.forEach((el) => {
         el.classList.remove(animate);
+      });
+    }
+  });
+});
+
+window.addEventListener('scroll', () => {
+  const windowTop = window.pageYOffset;
+  const windowHeight = ((window.innerHeight * 2) / 2.8);
+
+  allElementsEmphasis.forEach((element) => {
+    if ((windowTop) > windowHeight) {
+      element.classList.add(animateEmphasis);
+    } else {
+      allElementsEmphasis.forEach((el) => {
+        el.classList.remove(animateEmphasis);
       });
     }
   });
