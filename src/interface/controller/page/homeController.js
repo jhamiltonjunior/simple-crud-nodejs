@@ -5,6 +5,7 @@ const content = {
 
 export default {
   index(req, res) {
-    res.render('page/home', { content });
+    // res.render('page/home', { content });
+    res.json({ content });
   },
 };
