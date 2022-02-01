@@ -12,7 +12,15 @@ app.use(json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(json({ type: 'application/vnd.api+json' }));
 
-app.use(cors);
+app.use((_, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+
+  app.use(cors());
+
+  next();
+});
+
 router(app);
 
-app.listen(port, () => console.log('OK, app'));
+app.listen(port, () => console.log(`OK, app on http://localhost:${port}`));

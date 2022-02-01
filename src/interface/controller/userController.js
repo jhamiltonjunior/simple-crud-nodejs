@@ -20,8 +20,6 @@ export default {
     try {
       const { username } = req.params;
 
-      // console.log(username);
-
       const results = await query(`SELECT * FROM user_schema WHERE username = '${username}';`);
 
       res.json({ res: results.rows });
@@ -57,9 +55,9 @@ export default {
 
       const results = await query(
         `INSERT INTO user_schema (
-      username, fullname, email, passwd
-      )
-      VALUES ($1, $2, $3, $4) RETURNING *`,
+          username, fullname, email, passwd
+        )
+        VALUES ($1, $2, $3, $4) RETURNING *`,
         [
           username,
           fullname,
