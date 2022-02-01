@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export default {
-  writer(req, res, next) {
+  authOnly(req, res, next) {
     const authHeaders = req.headers.authorization;
     const { client } = req;
 
